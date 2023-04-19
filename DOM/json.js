@@ -1,4 +1,4 @@
-let bd = [
+let lista= [
     {
         email:"banguero58@gmail.com",
         password:"camilo2204",
@@ -22,43 +22,31 @@ let bd = [
 
 function sayHi(){
 
-    // console.log( document.getElementById( 'username' ) );
-    const username = document.querySelector( '#username' ).value;
-    const password = document.querySelector( '#password' ).value;
-    // let username = document.querySelector("#username").value
-    // let password = document.querySelector("#password").value
+    let username = document.querySelector("#username").value;
+    let password = document.querySelector("#password").value;
 
-    //if (username === "" ) return alert("el usuario no cumple con los parametros establecidos ") 
+  for(let user of lista){
+    console.log(user)
 
-    
+    if(username === user.username || username === user.email){
+        if(password === user.password){
+        return alert("sesion iniciada")
+    }
+    return alert("la contraseña es incorrecta")
+    }
+  }
 
-    console .log(username)
-    console .log(password)
-// for (let i = 0; i<bd.length; i++){
-//     console .log (username, bd [i].username, ' :: ', password, bd [i] .password)
+  return alert("no existe")
+}
 
-//     if(username == bd [i].username && password == bd [i] .password){
-//         console .log("se logio")
-//     } else{
-//         console .log("no se logio")
-//     }
+function viewPass(){
 
-    // let json ={
-    //     llave:valor
-    // }
+    let type = document.querySelector("#password").type
+    //return document.querySelector("#password").type = type === "password" ? "text" : "password"
 
-//     let persona = {
-//         name: "camilo",
-//         lastname:"banguero",
-//         age:18,
-//         id:2,
-//         tel:"ahora se lo doy "
-//     }
-//     let carro = {
-//         color:negro,
-//         marca:Fork,
-//         asientos:6,
-//         taxista:persona,
-//     }
-//   console .log(persona,carro)
+    if(type === "password"){
+        document.querySelector("#password").type = "text"
+    } else {
+        document.querySelector("#password").type = "password"
+    }
 }
